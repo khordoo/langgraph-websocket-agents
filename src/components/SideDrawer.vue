@@ -20,9 +20,7 @@
           </template>
         </v-list-item>
         <v-list density="compact" nav>
-          <v-list-item prepend-icon="mdi-home-city" title="Home" value="home"></v-list-item>
-          <v-list-item prepend-icon="mdi-account" title="My Account" value="account"></v-list-item>
-          <v-list-item prepend-icon="mdi-account-group-outline" title="Users" value="users"></v-list-item>
+          <v-list-item prepend-icon="mdi-cog" title="Settings" value="settings"></v-list-item>
         </v-list>
 
         <v-divider></v-divider>
@@ -44,14 +42,7 @@ export default {
     drawer: true,
     rail: true,
 
-  }),
-  methods:{
-    toggleSidebar() {
-      this.sidebarExpanded = !this.sidebarExpanded;
-      this.miniVariant = !this.miniVariant; // Toggle mini-variant state when clicking
-    
-    },
-  }
+  })
 };
 </script>
 
