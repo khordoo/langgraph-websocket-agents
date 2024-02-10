@@ -1,26 +1,31 @@
 <template>
-<v-navigation-drawer v-model="sidebarExpanded" app>
-      <v-app-bar-nav-icon  
-      expand-on-hoverrail rail
-      ></v-app-bar-nav-icon>
-
-      <v-list>
-          <v-list-item
-            prepend-avatar="https://randomuser.me/api/portraits/men/85.jpg"
-            title="John Dow"
-            subtitle="john.down@company.com"
-          ></v-list-item>
+<v-navigation-drawer  
+        v-model="drawer"
+        :rail="rail"
+        permanent
+        @click="rail = false"
+   >
+     
+        <v-list-item
+          prepend-avatar="https://randomuser.me/api/portraits/men/85.jpg"
+          :title="displayName"
+          nav
+        >
+          <template v-slot:append>
+            <v-btn
+              variant="text"
+              icon="mdi-chevron-left"
+              @click.stop="rail = !rail"
+            ></v-btn>
+          </template>
+        </v-list-item>
+        <v-list density="compact" nav>
+          <v-list-item prepend-icon="mdi-home-city" title="Home" value="home"></v-list-item>
+          <v-list-item prepend-icon="mdi-account" title="My Account" value="account"></v-list-item>
+          <v-list-item prepend-icon="mdi-account-group-outline" title="Users" value="users"></v-list-item>
         </v-list>
+
         <v-divider></v-divider>
-        <div class="d-flex justify-center align-center chatHistory">
-            <h5>History</h5>
-        </div>
-        
-<v-list density="compact" nav>
-  <v-list-item prepend-icon="mdi-folder" title="How to setup Artifactory" value="How to setup Artifactory"></v-list-item>
-  <v-list-item prepend-icon="mdi-account-multiple" title="CDA forms" value="shared"></v-list-item>
-  <v-list-item prepend-icon="mdi-star" title="D&A PoC checklist" value="starred"></v-list-item>
-</v-list>
 
 
     </v-navigation-drawer>
@@ -30,11 +35,23 @@
 <script>
 export default {
   name: 'SideDrawer',
+  props:{
+    displayName: String
+  },
   components: {
   },
   data: () => ({
-    sidebarExpanded: true,
+    drawer: true,
+    rail: true,
+
   }),
+  methods:{
+    toggleSidebar() {
+      this.sidebarExpanded = !this.sidebarExpanded;
+      this.miniVariant = !this.miniVariant; // Toggle mini-variant state when clicking
+    
+    },
+  }
 };
 </script>
 

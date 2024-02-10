@@ -1,11 +1,12 @@
 <template>
   <v-app>
-    <SideDrawer/>
+   
+    <SideDrawer :displayName="displayName" />
     <v-main>
       <v-container class="d-flex justify-center align-cente">
         
         <div v-if="!messageSent" class="welcome-message">
-          <WelcomeMessage :messageSent="messageSent" />
+          <WelcomeMessage :messageSent="messageSent" :displayName="displayName"  />
         </div>
 
         <div v-else class="message-container">
@@ -42,15 +43,17 @@ export default {
   },
   data: () => ({
     sidebarExpanded: true,
+    miniVariant: false, // Controls whether the drawer is in its mini state
     messageSent: false,
     userMessage: '',
+    displayName:'John Dow'
   }),
   methods: {
     handleSendMessage(message) {
       this.userMessage = message;
       this.messageSent = true;
       // Send the message to the AI agent
-    },
+    }
   },
 };
 </script>

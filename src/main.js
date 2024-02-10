@@ -1,3 +1,4 @@
+import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loader
 import { createApp } from 'vue'
 import App from './App.vue'
 
@@ -11,7 +12,8 @@ const vuetify = createVuetify({
     components,
     directives,
     theme: {
-        defaultTheme: 'dark'
+        defaultTheme: 'dark',
+        iconfont: 'mdi'
       }
   })
 
