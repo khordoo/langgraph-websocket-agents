@@ -19,3 +19,8 @@ export default {
     }
 }
 </script>
+<style>
+.welcome-message{
+    margin-top: 50px;
+}
+</style>
