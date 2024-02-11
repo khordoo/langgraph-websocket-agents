@@ -42,6 +42,7 @@ export default {
 
 .message {
   margin: 8px 0;
+  margin-top: 40px;
   /* Spacing between messages */
 }
 
@@ -55,6 +56,8 @@ export default {
   padding-left: 15px;
   margin-top: 4px;
   margin-bottom: 30px;
+  font-size: 1rem;
+  font-family: Helvetica, sans-serif;
 }
 .message-title {
   font-weight: bold;

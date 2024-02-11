@@ -21,7 +21,7 @@
         <v-row justify="center" class="input-container">
           <v-col cols="3"></v-col> <!-- Match the left spacer -->
           <v-col cols="6">
-            <MessageInput @sendMessage="handleSendMessage" />
+            <MessageInput @sendMessage="handleSendMessage" :showSuggestions=showSuggestions />
           </v-col>
           <v-col cols="3"></v-col> <!-- Match the right spacer -->
         </v-row>
@@ -43,6 +43,11 @@ export default {
     SideDrawer,
     WelcomeMessage,
     MessageHistory
+  },
+  computed:{
+    showSuggestions(){
+      return this.messages.length===0
+    }
   },
   data: () => ({
     messages: [],

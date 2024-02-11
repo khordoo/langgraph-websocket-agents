@@ -1,16 +1,20 @@
 <template>
-<v-navigation-drawer  
+<v-navigation-drawer 
         v-model="drawer"
         :rail="rail"
         permanent
         @click="rail = false"
    >
-     
+       <div class="content justify-center">
+
+
         <v-list-item
+          class="useraInfo"
           prepend-avatar="https://randomuser.me/api/portraits/men/85.jpg"
           :title="displayName"
           nav
         >
+         
           <template v-slot:append>
             <v-btn
               variant="text"
@@ -19,13 +23,22 @@
             ></v-btn>
           </template>
         </v-list-item>
+        <div>
+        </div>
         <v-list density="compact" nav>
-          <v-list-item prepend-icon="mdi-cog" title="Settings" value="settings"></v-list-item>
+
+          <v-list-item color="primary"   title="New Chat" value="NewChat"  >
+            <template v-slot:prepend>
+               <v-icon class="new-chat" icon="mdi-plus"></v-icon>
+           </template>
+
+
+          </v-list-item>
         </v-list>
 
         <v-divider></v-divider>
   
-
+    </div>
 
     </v-navigation-drawer>
 
@@ -41,15 +54,13 @@ export default {
   },
   data: () => ({
     drawer: true,
-    rail: true,
+    rail: false,
 
   })
 };
 </script>
 
 <style scoped>
-.chatHistory{
-    text-align: center;
-    margin-top: 10px;
-}
+
+
 </style>
