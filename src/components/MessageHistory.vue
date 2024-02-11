@@ -59,7 +59,6 @@ export default {
 .message-title {
   font-weight: bold;
   margin-left: 5px;
-  margin-top: 5px;
 }
 .v-icon {
   margin-right: 4px; /* Adjust space between the icon and the title */

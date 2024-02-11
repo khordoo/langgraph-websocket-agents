@@ -1,8 +1,5 @@
 <template>
   <v-app>
-
-
-
     <v-main>
       <SideDrawer :displayName="displayName" />
       <v-container fluid>
@@ -14,20 +11,21 @@
               <WelcomeMessage :displayName="displayName" />
             </template>
             <template v-else>
-              <MessageHistory :messages="messages" ></MessageHistory>
+              <MessageHistory :messages="messages"></MessageHistory>
             </template>
           </v-col>
           <v-col cols="3"></v-col> <!-- Right spacer -->
         </v-row>
       </v-container>
-      <v-row>
-        <v-col cols="3"></v-col> <!-- Left spacer -->
-        <v-col cols="6"  style="background-color: red;" ></v-col> <!-- Left spacer -->
-        <v-col cols="3"></v-col> <!-- Left spacer -->
-      </v-row>
-      <div class="input-container">
-        <MessageInput @sendMessage="handleSendMessage" />
-      </div>
+      <v-container fluid class="input-container pa-0">
+        <v-row justify="center" class="input-container">
+          <v-col cols="3"></v-col> <!-- Match the left spacer -->
+          <v-col cols="6">
+            <MessageInput @sendMessage="handleSendMessage" />
+          </v-col>
+          <v-col cols="3"></v-col> <!-- Match the right spacer -->
+        </v-row>
+      </v-container>
     </v-main>
   </v-app>
 </template>
@@ -77,54 +75,13 @@ export default {
 </script>
 
 <style>
-.v-container{
-   background-color: #353541;
-}
-.message-area {
-  height: calc(100vh - 60px);
-  /* Height minus input area height */
-  overflow-y: auto;
-  /* Enable scrolling for overflow content */
-}
 
-.input-container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.v-container {
+  background-color: #353541;
 }
-
-.message {
-  margin: 8px 0;
-  /* Spacing between messages */
-}
-
-.icon-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.message-text {
-  padding-left: 15px;
-  margin-top: 4px;
-  margin-bottom: 30px;
-}
-.message-title {
-  font-weight: bold;
-  margin-left: 5px;
-  margin-top: 5px;
-}
-.v-icon {
-  margin-right: 4px; /* Adjust space between the icon and the title */
-  size: 48;
-}
-
-.icon-and-title {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px; /* Adjust the space below the title as needed */
-  margin-left: 10px;
+.input-container{
+  background-color: #353541;
+ 
 }
 
 </style>

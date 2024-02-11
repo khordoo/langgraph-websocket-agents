@@ -1,14 +1,16 @@
 <template>
-    <v-card fixed="true" class="ma-5 pa-3" tile>
       <v-text-field
-        label="Enter a prompt here"
+        label="Message Assistant..."
         v-model="message"
         @keyup.enter="send"
-        outlined
+        append-inner-icon="mdi-microphone"
+        prepend-inner-icon="mdi-paperclip"
+        variant="outlined"
         clearable
         single-line
+        hide-details
       ></v-text-field>
-    </v-card>
+
   </template>
   
   <script>
@@ -27,6 +29,17 @@
   </script>
   
   <style>
-  /* Style your component */
+
+.v-text-field {
+border-radius: 10px; /* This should match the border-radius of the input field inside MessageInput */
+  overflow: hidden; /* To ensure the border-radius applies to all inner elements */
+  background-color: transparent; /* No background to blend with the page */
+  box-shadow: none; /* Remove box shadow if it's not needed */
+  width: 100%;
+  margin-bottom: 50px;
+  padding: 2px;
+}
+
   </style>
+  
   
