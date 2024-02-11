@@ -21,7 +21,7 @@
         <v-row justify="center" class="input-container">
           <v-col cols="3"></v-col> <!-- Match the left spacer -->
           <v-col cols="6">
-            <MessageInput @sendMessage="handleSendMessage" :showSuggestions=showSuggestions />
+            <MessageInput @sendMessage="handleSendMessage" :displaySuggestions=showSuggestions  :displayProgressBar=displayWaitForResponseProgressBar />
           </v-col>
           <v-col cols="3"></v-col> <!-- Match the right spacer -->
         </v-row>
@@ -51,6 +51,7 @@ export default {
   },
   data: () => ({
     messages: [],
+    displayWaitForResponseProgressBar: false,
     displayName: 'John Dow'
   }),
   methods: {
@@ -66,6 +67,7 @@ export default {
 
       // Here you would send the message to the AI and get the response
       // For now, let's simulate an AI response
+      this.displayWaitForResponseProgressBar=true
       setTimeout(() => {
         this.messages.push({
           text: "This is an AI response.",
@@ -73,6 +75,7 @@ export default {
           icon: 'mdi-creation-outline',
           timestamp: new Date()
         });
+        this.displayWaitForResponseProgressBar=false
       }, 1000);
     }
   },

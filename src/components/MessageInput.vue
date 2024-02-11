@@ -1,5 +1,5 @@
 <template>
-      <div v-if="showSuggestions" class="suggestion-holder">
+      <div v-if="displaySuggestions" class="suggestion-holder">
         <v-row>
       <!-- Loop through your suggestions and create two cards per row -->
       <v-col
@@ -20,7 +20,6 @@
                 {{ suggestion.title }}
             </template>
             <v-card-title class="text-h6"> </v-card-title>
-          <!-- <v-card-subtitle>{{ suggestion.subtitle }}</v-card-subtitle> -->
           <v-card-text>This is text{{ suggestion.subtitle }}</v-card-text>
         </v-card>
       </v-col>
@@ -34,9 +33,18 @@
         prepend-inner-icon="mdi-paperclip"
         variant="outlined"
         clearable
-        single-line
         hide-details
-      ></v-text-field>
+      >
+      <template v-slot:loader>
+        <v-progress-linear
+          :active="displayProgressBar"
+          :model-value="progress"
+          color="primary"
+          height="7"
+          indeterminate
+        ></v-progress-linear>
+      </template>
+    </v-text-field>
 
   </template>
   
@@ -44,7 +52,8 @@
   export default {
     name: 'MessageInput',
     props:{
-        showSuggestions: Boolean
+        displaySuggestions: Boolean,
+        displayProgressBar: Boolean
     },
     data: () => ({
       message: '',
