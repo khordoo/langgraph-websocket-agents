@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <SideDrawer :displayName="displayName" />
+      <SideDrawer :displayName="displayName" @new-chat="setupNewChat" />
       <v-container fluid>
         <v-row>
           <v-col cols="3"></v-col> <!-- Left spacer -->
@@ -77,6 +77,9 @@ export default {
         });
         this.displayWaitForResponseProgressBar=false
       }, 1000);
+    },
+    setupNewChat(){
+        this.messages=[]
     }
   },
 };

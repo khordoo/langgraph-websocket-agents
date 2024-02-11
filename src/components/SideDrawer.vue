@@ -27,9 +27,9 @@
         </div>
         <v-list density="compact" nav>
 
-          <v-list-item color="primary"   title="New Chat" value="NewChat"  >
+          <v-list-item @click="newChat" color="primary"   title="New Chat" value="NewChat"  >
             <template v-slot:prepend>
-               <v-icon class="new-chat" icon="mdi-plus"></v-icon>
+            <v-icon class="new-chat" icon="mdi-plus"></v-icon>
            </template>
 
 
@@ -56,7 +56,12 @@ export default {
     drawer: true,
     rail: false,
 
-  })
+  }),
+  methods:{
+    newChat() {
+    this.$emit('new-chat');
+  },
+  }
 };
 </script>
 
