@@ -1,16 +1,12 @@
 <template>
     <div v-for="message in messages" :key="message.timestamp.getTime()" class="message">
-
         <div class="icon-and-title">
-            <v-icon  :color="message.sender === 'user' ? 'blue' : 'green'">{{ message.icon }}</v-icon>
+            <v-icon class="message-icon"  >{{ message.icon }}</v-icon>
             <span class="message-title">{{ message.sender === 'user' ? 'You' : 'AI' }}</span>
         </div>
 
         <div class="message-text">{{ message.text }}</div>
-
-
     </div>
-
 </template>
 
 <script>
@@ -66,6 +62,10 @@ export default {
 .v-icon {
   margin-right: 4px; /* Adjust space between the icon and the title */
   size: 48;
+
+}
+.message-icon{
+    color: #AB68FF;
 }
 
 .icon-and-title {

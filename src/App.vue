@@ -70,7 +70,7 @@ export default {
         this.messages.push({
           text: "This is an AI response.",
           sender: 'ChatGPT',
-          icon: 'mdi-robot',
+          icon: 'mdi-creation-outline',
           timestamp: new Date()
         });
       }, 1000);
